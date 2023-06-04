@@ -72,7 +72,8 @@ const Modal: FC<ModalProps> = ({
           fixed 
           inset-0 
           z-50 
-          flex 
+          flex
+          h-full
           items-center 
           justify-center 
           overflow-y-auto 
@@ -84,14 +85,14 @@ const Modal: FC<ModalProps> = ({
       >
         <div
           className="
-          relative 
+          relative
           mx-auto
           my-6
           h-full
           w-full
           md:h-auto
           md:w-4/6 
-          lg:h-auto 
+          lg:h-full
           lg:w-3/6
           xl:w-2/5
           "
@@ -133,7 +134,7 @@ const Modal: FC<ModalProps> = ({
                 justify-center
                 rounded-t
                 border-b-[1px]
-                p-6
+                p-3
                 "
               >
                 <button
@@ -147,7 +148,7 @@ const Modal: FC<ModalProps> = ({
                   "
                   onClick={handleClose}
                 >
-                  <IoMdClose size={18} />
+                  <IoMdClose size={23} />
                 </button>
                 <div className="text-lg font-semibold">{title}</div>
               </div>

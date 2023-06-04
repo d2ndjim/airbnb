@@ -43,7 +43,7 @@ const UserMenu: FC<UserMenuProps> = ({}) => {
       </div>
       {isOpen && (
         <div className="absolute right-0 top-12 w-[40vw] overflow-hidden rounded-xl bg-white text-sm shadow-md md:w-3/4">
-          <div className="cursor pointer flex flex-col">
+          <div className="cursor-pointer flex flex-col">
             <>
               <MenuItem onClick={registerModal.onOpen} label="Signup" />
               <MenuItem onClick={() => {}} label="Login" />

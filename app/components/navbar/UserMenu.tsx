@@ -3,10 +3,12 @@ import { FC, useState } from "react";
 import { AiOutlineMenu } from "react-icons/ai";
 import Avatar from "../Avatar";
 import MenuItem from "./MenuItem";
+import useRegisterModal from "@/app/hooks/useRegisterModal";
 
 interface UserMenuProps {}
 
 const UserMenu: FC<UserMenuProps> = ({}) => {
+  const registerModal = useRegisterModal();
   const [isOpen, setIsOpen] = useState(false);
   const toggleOpen = () => setIsOpen((prev) => !prev);
   return (
@@ -41,9 +43,9 @@ const UserMenu: FC<UserMenuProps> = ({}) => {
       </div>
       {isOpen && (
         <div className="absolute right-0 top-12 w-[40vw] overflow-hidden rounded-xl bg-white text-sm shadow-md md:w-3/4">
-          <div className="cursor pointer flex flex-col">
+          <div className="cursor-pointer flex flex-col">
             <>
-              <MenuItem onClick={() => {}} label="Signup" />
+              <MenuItem onClick={registerModal.onOpen} label="Signup" />
               <MenuItem onClick={() => {}} label="Login" />
             </>
           </div>

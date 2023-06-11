@@ -5,10 +5,13 @@ import Avatar from "../Avatar";
 import MenuItem from "./MenuItem";
 import useRegisterModal from "@/app/hooks/useRegisterModal";
 import useLoginModal from "@/app/hooks/useLoginModal";
+import { User } from "@prisma/client";
 
-interface UserMenuProps {}
+interface UserMenuProps {
+  currentUser?: User | null;
+}
 
-const UserMenu: FC<UserMenuProps> = ({}) => {
+const UserMenu: FC<UserMenuProps> = ({ currentUser }) => {
   const registerModal = useRegisterModal();
   const loginModal = useLoginModal();
   const [isOpen, setIsOpen] = useState(false);
@@ -45,11 +48,25 @@ const UserMenu: FC<UserMenuProps> = ({}) => {
       </div>
       {isOpen && (
         <div className="absolute right-0 top-12 w-[40vw] overflow-hidden rounded-xl bg-white text-sm shadow-md md:w-3/4">
-          <div className="cursor-pointer flex flex-col">
-            <>
-              <MenuItem onClick={registerModal.onOpen} label="Signup" />
-              <MenuItem onClick={loginModal.onOpen} label="Login" />
-            </>
+          <div className="flex cursor-pointer flex-col">
+            {currentUser ? (
+              <>
+                <MenuItem onClick={() => {}} label="My trips" />
+                <MenuItem onClick={() => {}} label="My favorites" />
+                <MenuItem
+                  onClick={registerModal.onOpen}
+                  label="My reservations"
+                />
+                <MenuItem onClick={() => {}} label="My properties" />
+                <MenuItem onClick={() => {}} label="Airbnb my home" />
+                <MenuItem onClick={() => {}} label="Logout" />
+              </>
+            ) : (
+              <>
+                <MenuItem onClick={() => {}} label="Signup" />
+                <MenuItem onClick={() => {}} label="Login" />
+              </>
+            )}
           </div>
         </div>
       )}

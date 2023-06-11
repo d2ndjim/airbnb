@@ -5,6 +5,7 @@ import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import { FcGoogle } from "react-icons/fc";
 import { AiFillGithub } from "react-icons/ai";
 import { toast } from "react-hot-toast";
+import { signIn } from "next-auth/react";
 import useRegisterModal from "@/app/hooks/useRegisterModal";
 import Modal from "./Modal";
 import Heading from "../Heading";
@@ -36,8 +37,8 @@ const RegisterModal = () => {
         registerModal.onClose();
       })
       .catch((error) => {
-        // toast.error(error);
-        console.log(error)
+        toast.error("Sorry, something went wrong!");
+        // console.log(error)
       })
       .finally(() => {
         setIsLoading(false);

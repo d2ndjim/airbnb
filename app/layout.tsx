@@ -20,7 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={nunito.className}>
-        {/* <ToasterProvider /> */}
+        <ToasterProvider />
         <RegisterModal />
         <Navbar />
         {children}

@@ -65,6 +65,21 @@ const RentModal = () => {
     },
   });
 
+  const location = watch("location");
+  const category = watch("category");
+  const guestCount = watch("guestCount");
+  const roomCount = watch("roomCount");
+  const bathroomCount = watch("bathroomCount");
+  const imageSrc = watch("imageSrc");
+
+  const setCustomValue = (id: string, value: any) => {
+    setValue(id, value, {
+      shouldDirty: true,
+      shouldTouch: true,
+      shouldValidate: true,
+    });
+  };
+
   let bodyContent = (
     <div className="flex flex-col gap-8">
       <Heading
@@ -84,8 +99,8 @@ const RentModal = () => {
         {categories.map((item) => (
           <div key={item.label} className="col-span-1">
             <CategoryInput
-              onClick={() => {}}
-              selected={false}
+              onClick={(category) => setCustomValue("category", category)}
+              selected={category === item.label}
               label={item.label}
               icon={item.icon}
             />

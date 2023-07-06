@@ -66,10 +66,13 @@ const UserMenu: FC<UserMenuProps> = ({ currentUser }) => {
           <div className="flex cursor-pointer flex-col">
             {currentUser ? (
               <>
-                <MenuItem onClick={() => router.push("./trips")} label="My trips" />
+                <MenuItem
+                  onClick={() => router.push("./trips")}
+                  label="My trips"
+                />
                 <MenuItem onClick={() => {}} label="My favorites" />
                 <MenuItem
-                  onClick={registerModal.onOpen}
+                  onClick={() => router.push("./reservations")}
                   label="My reservations"
                 />
                 <MenuItem onClick={() => {}} label="My properties" />
